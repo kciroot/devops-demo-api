@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tasks-api
+  labels:
+    # Kubernetes rejects pods that break the "restricted" security standard.
+    pod-security.kubernetes.io/enforce: restricted

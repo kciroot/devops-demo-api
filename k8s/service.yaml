@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tasks-api
+  namespace: tasks-api
+  labels:
+    app: tasks-api
+spec:
+  type: ClusterIP
+  selector:
+    app: tasks-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

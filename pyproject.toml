@@ -1,0 +1,24 @@
+[project]
+name = "tasks-api"
+version = "1.0.0"
+description = "DevOps demo: REST API with SQLite, CI/CD, security scans and Kubernetes"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["app"]
+relative_files = true  # SonarCloud needs relative paths in coverage.xml
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: errors, I: import order, B: bug-prone patterns, S: security (bandit rules), UP: modern syntax
+select = ["E", "F", "I", "B", "S", "UP"]
+ignore = ["S608"]  # dynamic SQL only joins whitelisted column names; values are parameters
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]  # assert is how pytest works
