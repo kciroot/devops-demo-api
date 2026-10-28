@@ -6,7 +6,7 @@ so user input can't turn into SQL (prevents SQL injection).
 
 import os
 import sqlite3
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from flask import Flask, current_app, g
 
@@ -25,7 +25,7 @@ COLUMNS = "id, title, description, done, created_at, updated_at"
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return datetime.now(UTC).isoformat(timespec="seconds")
 
 
 def get_db() -> sqlite3.Connection:
