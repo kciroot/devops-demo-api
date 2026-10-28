@@ -57,7 +57,7 @@ jobs:
       # Quality Gate. Runs only when the SONAR_TOKEN secret exists (see README).
       - name: SonarCloud scan and Quality Gate
         if: env.SONAR_TOKEN != ''
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v7
         with:
           args: >
             -Dsonar.qualitygate.wait=true
