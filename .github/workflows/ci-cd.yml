@@ -33,7 +33,7 @@ jobs:
         with:
           fetch-depth: 0  # full history, needed by SonarCloud
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
@@ -71,7 +71,7 @@ jobs:
         with:
           fetch-depth: 0  # gitleaks checks the whole history
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
