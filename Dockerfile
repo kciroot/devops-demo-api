@@ -1,13 +1,13 @@
 # syntax=docker/dockerfile:1
 
 # ---- Stage 1: build the dependencies -------------------------------------
-FROM python:3.13-slim AS builder
+FROM python:3.15-slim AS builder
 WORKDIR /build
 COPY requirements.txt .
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # ---- Stage 2: minimal runtime image --------------------------------------
-FROM python:3.13-slim
+FROM python:3.15-slim
 
 LABEL org.opencontainers.image.title="tasks-api" \
       org.opencontainers.image.description="DevOps demo: REST API with SQLite" \
